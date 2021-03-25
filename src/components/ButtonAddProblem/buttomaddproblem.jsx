@@ -1,13 +1,50 @@
+import { useState } from "react";
 import { Button, Icon } from "rsuite";
+import ButtonAddProblemModal from "../ButtonAddProblemModal/buttonaddproblemmodal";
 import "./styles.scss";
+import ButtonLoginModal from "../ButtonLoginModal/ButtonLoginModal";
 
 function ButtonAddProblem() {
+  const [isShowAddProblemModal, setIsShowAddProblemModal] = useState(false);
+  const [isShowLoginModal, setIsShowLoginModal] = useState(false);
+
+  const submitAddProblemModal = () => {
+    setIsShowAddProblemModal(false);
+  };
+
+  const submitLoginModal = () => {
+    setIsShowLoginModal(false);
+  };
+
+  const isLogined = true;
+
   return (
-    <div className="button-add-problem-component">
-      <Button color="blue">
-        <Icon icon="plus" />
-        Добавить
-      </Button>
+    <div>
+      <div className="button-add-problem-component">
+        {isLogined && (
+          <Button color="blue" onClick={() => setIsShowAddProblemModal(true)}>
+            <Icon icon="plus" />
+            Добавить
+          </Button>
+        )}
+        {!isLogined && (
+          <Button color="blue" onClick={() => setIsShowLoginModal(true)}>
+            <Icon icon="user-o" />
+            Войти
+          </Button>
+        )}
+      </div>
+
+      <ButtonAddProblemModal
+        onClose={() => setIsShowAddProblemModal(false)}
+        onSubmit={submitAddProblemModal}
+        isShow={isShowAddProblemModal}
+      />
+      <ButtonLoginModal
+        onClose={() => setIsShowLoginModal(false)}
+        onSubmit={submitLoginModal}
+        isShow={isShowLoginModal}
+      />
     </div>
   );
 }

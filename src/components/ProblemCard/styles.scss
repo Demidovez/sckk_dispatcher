@@ -31,17 +31,23 @@
           padding: 10px 0;
         }
 
-        p span {
-          color: gray;
-          font-size: 15px;
-          font-weight: 200;
-
-          &.reason-label {
-            color: #e74c3c;
+        p {
+          & + p {
+            font-size: 14px;
           }
 
-          &.comment-label {
-            color: #2ecc71;
+          span {
+            color: gray;
+            font-size: 15px;
+            font-weight: 200;
+
+            &.reason-label {
+              color: #e74c3c;
+            }
+
+            &.comment-label {
+              color: #2ecc71;
+            }
           }
         }
       }

@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 0 0 5px;
+  margin: 0 0 5px 5px;
 
   .found-problems-label {
     color: gray;
@@ -54,28 +54,18 @@
     .icon-controller {
       padding: 10px;
       cursor: pointer;
+      width: 25px;
+      height: 25px;
+      box-sizing: content-box;
 
       img {
-        width: 25px;
-        height: 25px;
+        width: 100%;
+        opacity: 0.8;
+        transition: all 0.3s ease-out;
       }
-    }
-  }
-}
 
-.search-bar-controllers-modal {
-  .rs-modal-content {
-    border-radius: 25px;
-
-    .rs-modal-title {
-      font-size: 18px;
-      font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-    }
-
-    .rs-modal-footer {
-      button {
-        border-radius: 35px;
-        padding: 8px 20px;
+      &:hover img {
+        opacity: 1;
       }
     }
   }
