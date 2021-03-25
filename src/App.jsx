@@ -1,6 +1,6 @@
 import "rsuite/dist/styles/rsuite-default.css";
 import "./App.scss";
-import { Grid, Row, Col } from "rsuite";
+import { Grid, Row, Col, Divider } from "rsuite";
 import SearchBar from "./components/SearchBar/searchbar";
 import ButtonAddProblem from "./components/ButtonAddProblem/buttomaddproblem";
 import SearchBarControllers from "./components/SearchBarControllers/searchbarcontrollers";
@@ -15,8 +15,15 @@ function App() {
         <Row>
           <Col xs={6} />
           <Col xs={12} className="content">
-            <SearchBar />
-            {isUserCanAddProblem && <ButtonAddProblem />}
+            <div className="search-wrapper">
+              <SearchBar />
+              {isUserCanAddProblem && (
+                <>
+                  <Divider vertical />
+                  <ButtonAddProblem />
+                </>
+              )}
+            </div>
             <SearchBarControllers />
             <ProblemsList />
           </Col>

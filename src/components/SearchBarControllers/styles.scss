@@ -1,2 +1,82 @@
 .search-bar-controllers-component {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 0 0 5px;
+
+  .found-problems-label {
+    color: gray;
+  }
+
+  .controllers-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    .area-select {
+      width: 100px;
+      & > a {
+        background-color: transparent !important;
+        border: none;
+
+        & > span.rs-picker-toggle-placeholder {
+          color: #575757;
+        }
+      }
+    }
+
+    .order-select {
+      width: 120px;
+
+      & > a {
+        background-color: transparent !important;
+        border: none;
+        text-align: right;
+
+        & > span.rs-picker-toggle-placeholder {
+          color: #575757;
+        }
+
+        .rs-picker-toggle-clean {
+          right: 27px;
+        }
+
+        .rs-picker-toggle-caret {
+          right: 7px;
+        }
+
+        .rs-picker-toggle-value {
+          color: inherit;
+        }
+      }
+    }
+
+    .icon-controller {
+      padding: 10px;
+      cursor: pointer;
+
+      img {
+        width: 25px;
+        height: 25px;
+      }
+    }
+  }
+}
+
+.search-bar-controllers-modal {
+  .rs-modal-content {
+    border-radius: 25px;
+
+    .rs-modal-title {
+      font-size: 18px;
+      font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    }
+
+    .rs-modal-footer {
+      button {
+        border-radius: 35px;
+        padding: 8px 20px;
+      }
+    }
+  }
 }

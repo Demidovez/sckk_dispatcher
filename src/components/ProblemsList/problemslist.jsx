@@ -1,5 +1,7 @@
 import "./styles.scss";
 import ProblemCard from "../ProblemCard/problemcard";
+import { Button } from "rsuite";
+import { formatNumber } from "../../helpers";
 
 function ProblemsList() {
   const problems = [
@@ -15,7 +17,7 @@ function ProblemsList() {
       comment: "Нужно уточнить у Дайнеко",
       date: "25.02.2021 16:00",
       is_hide: false,
-      is_done: false,
+      is_done: true,
     },
     {
       id: 2,
@@ -46,12 +48,21 @@ function ProblemsList() {
       is_done: false,
     },
   ];
+  const moreProblems = [];
+  const allCount = 45789;
 
   return (
     <div className="problems-list-component">
       {problems.map((problem) => (
         <ProblemCard key={problem.id} problem={problem} />
       ))}
+      {problems.length + moreProblems.length < allCount && (
+        <div className="show-more">
+          <Button>Показать еще</Button>{" "}
+          {formatNumber(problems.length + moreProblems.length)} <span>из</span>
+          {formatNumber(allCount)}
+        </div>
+      )}
     </div>
   );
 }

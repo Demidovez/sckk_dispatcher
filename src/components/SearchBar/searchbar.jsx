@@ -7,7 +7,10 @@ function SearchBar() {
       <InputGroup.Button>
         <Icon icon="search" />
       </InputGroup.Button>
-      <Input />
+      <Input spellCheck="false" />
+      <InputGroup.Button>
+        <Icon icon="close" />
+      </InputGroup.Button>
     </InputGroup>
   );
 }

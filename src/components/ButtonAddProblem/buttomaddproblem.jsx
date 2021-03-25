@@ -1,10 +1,13 @@
-import { Button } from "rsuite";
+import { Button, Icon } from "rsuite";
 import "./styles.scss";
 
 function ButtonAddProblem() {
   return (
     <div className="button-add-problem-component">
-      <Button color="green">Добавить</Button>
+      <Button color="blue">
+        <Icon icon="plus" />
+        Добавить
+      </Button>
     </div>
   );
 }
