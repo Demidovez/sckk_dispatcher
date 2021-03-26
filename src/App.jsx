@@ -1,10 +1,10 @@
 import "rsuite/dist/styles/rsuite-default.css";
 import "./App.scss";
 import { Grid, Row, Col, Divider } from "rsuite";
-import SearchBar from "./components/SearchBar/searchbar";
-import ButtonAddProblem from "./components/ButtonAddProblem/buttomaddproblem";
-import SearchBarControllers from "./components/SearchBarControllers/searchbarcontrollers";
-import ProblemsList from "./components/ProblemsList/problemslist";
+import SearchBar from "./components/SearchBar/SearchBar";
+import ButtonAddProblem from "./components/ButtonAddProblem/ButtomAddProblem";
+import SearchBarControllers from "./components/SearchBarControllers/SearchBarControllers";
+import ProblemsList from "./components/ProblemsList/ProblemsList";
 
 function App() {
   const isUserCanAddProblem = true;

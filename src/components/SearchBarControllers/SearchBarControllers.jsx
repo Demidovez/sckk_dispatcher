@@ -1,6 +1,6 @@
 import { Checkbox, CheckboxGroup, SelectPicker } from "rsuite";
 import "./styles.scss";
-import SearchSettingIcon from "../SearchSettingIcon/searchsettingicon";
+import SearchSettingIcon from "../SearchSettingIcon/SearchSettingIcon";
 import { useSelector } from "react-redux";
 
 function SearchBarControllers() {

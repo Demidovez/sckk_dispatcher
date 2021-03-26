@@ -1,30 +1,12 @@
 import { useState } from "react";
 import { Modal, CheckPicker, DatePicker, Button } from "rsuite";
 import "./styles.scss";
+import { useSelector } from "react-redux";
 
 function SearchSettingIcon({ className }) {
-  const areaList = [
-    { label: "1ABCDEH", value: "1ABCDEH" },
-    { label: "2ABCDE", value: "2ABCDE" },
-    { label: "5ABC", value: "5ABC" },
-    { label: "6ABCDEF", value: "6ABCDEF" },
-  ];
-  const codeProblemList = [
-    { label: "T345", value: "T345" },
-    { label: "A14", value: "A14" },
-    { label: "X90", value: "X90" },
-    { label: "K89", value: "K89" },
-  ];
-  const locale = {
-    sunday: "Вс",
-    monday: "Пн",
-    tuesday: "Вт",
-    wednesday: "Ср",
-    thursday: "Чт",
-    friday: "Пт",
-    saturday: "Сб",
-    ok: "OK",
-  };
+  const { areaList, codeProblemList, locale } = useSelector(
+    (state) => state.problems
+  );
 
   const [showFilterModal, setShowFilterModal] = useState(false);
 
