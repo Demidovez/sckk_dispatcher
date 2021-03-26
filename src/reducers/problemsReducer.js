@@ -7,6 +7,30 @@ const initialState = {
   offset: 0,
   offsetStep: 15,
   orderValue: null,
+  areaList: [
+    { label: "Другой", value: "another" },
+    { label: "1ABCDEH", value: "1ABCDEH" },
+    { label: "2ABCDE", value: "2ABCDE" },
+    { label: "5ABC", value: "5ABC" },
+    { label: "6ABCDEF", value: "6ABCDEF" },
+  ],
+  codeProblemList: [
+    { label: "Другой", value: "another" },
+    { label: "T345", value: "T345" },
+    { label: "A14", value: "A14" },
+    { label: "X90", value: "X90" },
+    { label: "K89", value: "K89" },
+  ],
+  locale: {
+    sunday: "Вс",
+    monday: "Пн",
+    tuesday: "Вт",
+    wednesday: "Ср",
+    thursday: "Чт",
+    friday: "Пт",
+    saturday: "Сб",
+    ok: "OK",
+  },
 };
 
 const problemsReducer = (state = initialState, action) => {

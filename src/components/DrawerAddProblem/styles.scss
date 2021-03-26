@@ -1,0 +1,53 @@
+.drawer-add-problem-component {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  color: black;
+
+  .rs-drawer-content {
+    .rs-drawer-body {
+      margin: 25px 20px;
+
+      p {
+        margin-bottom: 5px;
+        font-size: 16px;
+        color: black;
+      }
+
+      .rs-picker-check,
+      .rs-picker-select,
+      textarea,
+      input {
+        margin-bottom: 15px;
+        width: 100%;
+      }
+
+      .code-and-date-wrapper {
+        display: flex;
+        align-content: center;
+        justify-content: space-between;
+
+        & > div {
+          flex: 1 1 auto;
+        }
+
+        & > div:first-child {
+          margin-right: 15px;
+          flex: 4 1 auto;
+        }
+      }
+
+      .rs-radio-group {
+        margin-left: -20px;
+      }
+    }
+
+    .rs-drawer-footer {
+      text-align: left;
+      margin: 0 20px 40px;
+
+      button {
+        border-radius: 35px;
+        padding: 8px 20px;
+      }
+    }
+  }
+}

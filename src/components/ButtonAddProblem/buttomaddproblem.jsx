@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Icon } from "rsuite";
-import ButtonAddProblemModal from "../ButtonAddProblemModal/buttonaddproblemmodal";
+import DrawerAddProblem from "../DrawerAddProblem/DrawerAddProblem";
 import "./styles.scss";
 import ButtonLoginModal from "../ButtonLoginModal/ButtonLoginModal";
 
@@ -35,7 +35,7 @@ function ButtonAddProblem() {
         )}
       </div>
 
-      <ButtonAddProblemModal
+      <DrawerAddProblem
         onClose={() => setIsShowAddProblemModal(false)}
         onSubmit={submitAddProblemModal}
         isShow={isShowAddProblemModal}
