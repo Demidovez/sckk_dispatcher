@@ -4,9 +4,11 @@
 
   .rs-drawer-content {
     .rs-drawer-body {
-      margin: 25px 20px;
+      margin: 0 0 20px 0;
+      padding: 0 25px 20px;
 
       p {
+        margin-top: 20px;
         margin-bottom: 5px;
         font-size: 16px;
         color: black;
@@ -16,7 +18,6 @@
       .rs-picker-select,
       textarea,
       input {
-        margin-bottom: 15px;
         width: 100%;
       }
 
@@ -37,7 +38,31 @@
 
       .rs-radio-group {
         margin-left: -20px;
+        margin-top: 15px;
       }
+
+      .field-required {
+        position: relative;
+
+        .error {
+          color: red;
+          font-weight: 100;
+          position: absolute;
+          right: 0;
+          display: none;
+        }
+
+        &.has-error {
+          input, textarea, .rs-picker-default .rs-picker-toggle {
+            border-color: red;
+          }
+
+          .error {
+            display: block;
+          }
+        }
+      }
+
     }
 
     .rs-drawer-footer {

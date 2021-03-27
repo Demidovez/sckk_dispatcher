@@ -8,10 +8,6 @@ function ButtonAddProblem() {
   const [isShowAddProblemModal, setIsShowAddProblemModal] = useState(false);
   const [isShowLoginModal, setIsShowLoginModal] = useState(false);
 
-  const submitAddProblemModal = () => {
-    setIsShowAddProblemModal(false);
-  };
-
   const submitLoginModal = () => {
     setIsShowLoginModal(false);
   };
@@ -37,7 +33,6 @@ function ButtonAddProblem() {
 
       <DrawerAddProblem
         onClose={() => setIsShowAddProblemModal(false)}
-        onSubmit={submitAddProblemModal}
         isShow={isShowAddProblemModal}
       />
       <ButtonLoginModal

@@ -31,9 +31,7 @@ function ProblemCard({ problem }) {
       <Container>
         <Container className="content">
           <Header>
-            <h3>
-              <span>#{id}</span> {title}
-            </h3>
+            <h3>{title}</h3>
           </Header>
           <Content>
             <p className="text-problem">{text}</p>
@@ -52,7 +50,9 @@ function ProblemCard({ problem }) {
         <Divider vertical />
         <Sidebar>
           <div className="date-status-wrapper">
-            <span>{date}</span>
+            <div className="date">
+              <span>№ {id}</span> {date}
+            </div>
             <div className={`status ${is_done ? "done" : "open"}`}>
               {is_done ? "Закрыто" : "Актуально"}
             </div>

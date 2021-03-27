@@ -2,10 +2,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 0 0 5px 5px;
+  margin: 0 0 5px 0;
 
   .found-problems-label {
     color: gray;
+    margin-right: 10px;
   }
 
   .controllers-wrapper {
@@ -13,25 +14,27 @@
     justify-content: flex-end;
     align-items: center;
 
-    .area-select {
-      width: 100px;
-      & > a {
-        background-color: transparent !important;
-        border: none;
-
-        & > span.rs-picker-toggle-placeholder {
-          color: #575757;
-        }
-      }
+    .rs-checkbox-group-inline {
+      margin-left: 0;
+      margin-right: 10px;
     }
 
-    .order-select {
-      width: 120px;
+    //.area-select {
+    //  width: 100px;
+    //  & > a {
+    //    background-color: transparent !important;
+    //    border: none;
+    //
+    //    & > span.rs-picker-toggle-placeholder {
+    //      color: #575757;
+    //    }
+    //  }
+    //}
 
+    .order-select {
       & > a {
         background-color: transparent !important;
         border: none;
-        text-align: right;
 
         & > span.rs-picker-toggle-placeholder {
           color: #575757;
