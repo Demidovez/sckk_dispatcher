@@ -1,5 +1,31 @@
 .search-setting-icon-component {
+  padding: 10px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  box-sizing: content-box;
 
+  img {
+    width: 100%;
+    opacity: 0.8;
+    transition: all 0.3s ease-out;
+  }
+
+  &:hover img {
+    opacity: 1;
+  }
+
+  .rs-badge {
+    .rs-badge-content {
+      background-color: transparent;
+      top: -5px;
+      right: -5px;
+    }
+
+    &.show .rs-badge-content {
+      background-color: #2196f3;
+    }
+  }
 }
 
 .search-setting-icon-modal {
@@ -42,9 +68,15 @@
     }
 
     .rs-modal-footer {
+      text-align: left;
+
       button {
         border-radius: 35px;
         padding: 8px 20px;
+
+        &.btn-reset {
+          float: right;
+        }
       }
     }
   }

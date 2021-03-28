@@ -1,0 +1,46 @@
+.drawer-edit-problem-component {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  color: black;
+
+  .rs-drawer-content {
+    .rs-drawer-body {
+      margin: 0 0 20px 0;
+      padding: 0 25px 20px;
+    }
+
+    .rs-drawer-footer {
+      text-align: left;
+      margin: 0 20px 20px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      button {
+        border-radius: 35px;
+        padding: 8px 20px;
+
+        &.btn-delete {
+          position: absolute;
+          right: 0;
+
+          &:hover {
+            background-color: #bf2008;
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.drawer-edit-problem-modal {
+  text-align: center;
+
+  i {
+    color: #ffb300;
+    font-size: 24px;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+}

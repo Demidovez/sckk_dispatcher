@@ -14,22 +14,18 @@
     justify-content: flex-end;
     align-items: center;
 
+    .loader-wrapper {
+      margin-left: 50px;
+      display: flex;
+      animation: 0.5s fadeIn;
+      animation-fill-mode: forwards;
+      visibility: hidden;
+    }
+
     .rs-checkbox-group-inline {
       margin-left: 0;
       margin-right: 10px;
     }
-
-    //.area-select {
-    //  width: 100px;
-    //  & > a {
-    //    background-color: transparent !important;
-    //    border: none;
-    //
-    //    & > span.rs-picker-toggle-placeholder {
-    //      color: #575757;
-    //    }
-    //  }
-    //}
 
     .order-select {
       & > a {
@@ -53,23 +49,15 @@
         }
       }
     }
+  }
+}
 
-    .icon-controller {
-      padding: 10px;
-      cursor: pointer;
-      width: 25px;
-      height: 25px;
-      box-sizing: content-box;
-
-      img {
-        width: 100%;
-        opacity: 0.8;
-        transition: all 0.3s ease-out;
-      }
-
-      &:hover img {
-        opacity: 1;
-      }
-    }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    visibility: visible;
+    opacity: 1;
   }
 }

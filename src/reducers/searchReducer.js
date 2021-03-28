@@ -1,13 +1,16 @@
 import Actions from "../actions/types/searchActionTypes";
 
 const initialState = {
-  searchStr: "",
-  isActual: true,
-  isDone: true,
-  orderValue: null,
-  dateRange: [],
-  areas: [],
-  problemCodes: [],
+  searchData: {
+    searchStr: "",
+    isActual: true,
+    isDone: false,
+    orderValue: null,
+    fromDate: null,
+    toDate: null,
+    areas: [],
+    problemCodes: [],
+  },
   orderData: [
     {
       label: "Новые",
@@ -29,37 +32,57 @@ const searchReducer = (state = initialState, action) => {
     case Actions.SET_SEARCH_STR:
       return {
         ...state,
-        searchStr: action.payload.searchStr,
+        searchData: {
+          ...state.searchData,
+          searchStr: action.payload,
+        },
       };
     case Actions.SET_IS_ACTUAL:
       return {
         ...state,
-        isActual: action.payload,
+        searchData: {
+          ...state.searchData,
+          isActual: action.payload,
+        },
       };
     case Actions.SET_IS_DONE:
       return {
         ...state,
-        isDone: action.payload,
+        searchData: {
+          ...state.searchData,
+          isDone: action.payload,
+        },
       };
     case Actions.SET_ORDER_VALUE:
       return {
         ...state,
-        orderValue: action.payload,
+        searchData: {
+          ...state.searchData,
+          orderValue: action.payload,
+        },
       };
-    case Actions.SET_DATE_RANGE:
+    case Actions.SET_ADDITIONAL_SEARCH_DATA:
       return {
         ...state,
-        dateRange: action.payload,
+        searchData: {
+          ...state.searchData,
+          areas: action.payload.areas,
+          problemCodes: action.payload.problemCodes,
+          fromDate: action.payload.fromDate,
+          toDate: action.payload.toDate,
+        },
       };
-    case Actions.SET_AREAS:
+    case Actions.RESET_ADDITIONAL_SEARCH_DATA:
       return {
         ...state,
-        areas: action.payload,
-      };
-    case Actions.SET_PROBLEM_CODES:
-      return {
-        ...state,
-        problemCodes: action.payload,
+        searchData: {
+          ...state.searchData,
+          areas: initialState.searchData.areas,
+          problemCodes: initialState.searchData.problemCodes,
+          dateRange: initialState.searchData.dateRange,
+          fromDate: initialState.searchData.fromDate,
+          toDate: initialState.searchData.toDate,
+        },
       };
     default:
       return state;

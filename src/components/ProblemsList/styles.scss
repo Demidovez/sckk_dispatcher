@@ -1,4 +1,10 @@
 .problems-list-component {
+  .rs-loader-wrapper {
+    display: block;
+    text-align: center;
+    margin: 20px 0;
+  }
+
   .show-more {
     button {
       border-radius: 35px;

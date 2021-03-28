@@ -5,7 +5,7 @@ import "./styles.scss";
 import ButtonLoginModal from "../ButtonLoginModal/ButtonLoginModal";
 
 function ButtonAddProblem() {
-  const [isShowAddProblemModal, setIsShowAddProblemModal] = useState(false);
+  const [isShowAddProblemDrawer, setIsShowAddProblemDrawer] = useState(false);
   const [isShowLoginModal, setIsShowLoginModal] = useState(false);
 
   const submitLoginModal = () => {
@@ -18,7 +18,7 @@ function ButtonAddProblem() {
     <div>
       <div className="button-add-problem-component">
         {isLogined && (
-          <Button color="blue" onClick={() => setIsShowAddProblemModal(true)}>
+          <Button color="blue" onClick={() => setIsShowAddProblemDrawer(true)}>
             <Icon icon="plus" />
             Добавить
           </Button>
@@ -32,8 +32,8 @@ function ButtonAddProblem() {
       </div>
 
       <DrawerAddProblem
-        onClose={() => setIsShowAddProblemModal(false)}
-        isShow={isShowAddProblemModal}
+        onClose={() => setIsShowAddProblemDrawer(false)}
+        isShow={isShowAddProblemDrawer}
       />
       <ButtonLoginModal
         onClose={() => setIsShowLoginModal(false)}

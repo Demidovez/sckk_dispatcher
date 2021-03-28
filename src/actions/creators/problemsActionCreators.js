@@ -1,7 +1,8 @@
 import Actions from "../types/problemsActionTypes";
 
-export const getAllProblemsAction = () => ({
+export const getAllProblemsAction = (searchData) => ({
   type: Actions.GET_ALL_PROBLEMS,
+  payload: searchData,
 });
 
 export const setAllProblemsAction = (problems, count) => ({
@@ -17,4 +18,24 @@ export const getMoreProblemsAction = (options) => ({
 export const setMoreProblemsAction = (moreProblems) => ({
   type: Actions.SET_MORE_PROBLEMS,
   payload: moreProblems,
+});
+
+export const addProblemAction = (values) => ({
+  type: Actions.ADD_PROBLEM,
+  payload: values,
+});
+
+export const setResultProblemStatusAction = (status) => ({
+  type: Actions.SET_RESULT_PROBLEM_STATUS,
+  payload: status,
+});
+
+export const deleteProblemAction = (problemId) => ({
+  type: Actions.DELETE_PROBLEM,
+  payload: problemId,
+});
+
+export const editProblemAction = (problem) => ({
+  type: Actions.EDIT_PROBLEM,
+  payload: problem,
 });

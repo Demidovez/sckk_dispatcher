@@ -12,13 +12,13 @@ import {
 } from "rsuite";
 import "./styles.scss";
 
-function ProblemCard({ problem }) {
+function ProblemCard({ problem, showEditDrawer }) {
   const {
     id,
     problem_code,
-    location,
+    area,
     owner,
-    title,
+    name,
     text,
     reason,
     comment,
@@ -31,27 +31,32 @@ function ProblemCard({ problem }) {
       <Container>
         <Container className="content">
           <Header>
-            <h3>{title}</h3>
+            <h3>{name}</h3>
           </Header>
           <Content>
             <p className="text-problem">{text}</p>
-            <p>
-              <span className="reason-label">Причина:</span> {reason}
-            </p>
-            <p>
-              <span className="comment-label">Комментарий:</span> {comment}
-            </p>
-            <p>
-              <span>Ответственный:</span> {owner}
-            </p>
+            {reason && (
+              <p>
+                <span className="reason-label">Причина:</span> {reason}
+              </p>
+            )}
+            {comment && (
+              <p>
+                <span className="comment-label">Комментарий:</span> {comment}
+              </p>
+            )}
+            {owner && (
+              <p>
+                <span>Ответственный:</span> {owner}
+              </p>
+            )}
           </Content>
-          {/* <Footer>Footer</Footer> */}
         </Container>
         <Divider vertical />
         <Sidebar>
           <div className="date-status-wrapper">
             <div className="date">
-              <span>№ {id}</span> {date}
+              <span>№ {id}</span> {new Date(date).toLocaleDateString()}
             </div>
             <div className={`status ${is_done ? "done" : "open"}`}>
               {is_done ? "Закрыто" : "Актуально"}
@@ -60,7 +65,7 @@ function ProblemCard({ problem }) {
           <div className="another-options">
             <p className="location">
               Цех:
-              <span>{location}</span>
+              <span>{area}</span>
             </p>
             <p className="problem-code">
               Код проблемы:
@@ -75,7 +80,11 @@ function ProblemCard({ problem }) {
               </Whisper>
             </p>
           </div>
-          <Button color="blue" className="btn-edit">
+          <Button
+            color="blue"
+            className="btn-edit"
+            onClick={() => showEditDrawer(problem.id)}
+          >
             <Icon icon="" /> Изменить
           </Button>
         </Sidebar>

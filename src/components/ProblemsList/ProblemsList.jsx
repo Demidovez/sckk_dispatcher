@@ -1,24 +1,35 @@
 import ProblemCard from "../ProblemCard/ProblemCard";
-import { Button } from "rsuite";
+import { Button, Loader } from "rsuite";
 import { formatNumber } from "../../helpers";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getAllProblemsAction } from "../../actions/creators/problemsActionCreators";
+import { useSelector } from "react-redux";
 import "./styles.scss";
+import DrawerEditProblem from "../DrawerEditProblem/DrawerEditProblem";
+import { useState } from "react";
 
 function ProblemsList() {
-  const { problems, moreProblems, count } = useSelector(
+  const { problems, moreProblems, count, isLoading } = useSelector(
     (state) => state.problems
   );
-  const dispatch = useDispatch();
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  useEffect(() => dispatch(getAllProblemsAction()), []);
+  const [isShowEditProblemDrawer, setIsShowEditProblemDrawer] = useState(false);
+  const [idProblemEdit, setIdProblemEdit] = useState();
+
+  const showEditProblemDrawer = (problemId) => {
+    setIdProblemEdit(problemId);
+    setIsShowEditProblemDrawer(true);
+  };
 
   return (
     <div className="problems-list-component">
+      {isLoading && problems.length === 0 && (
+        <Loader size="md" content="Загрузка..." />
+      )}
       {problems.map((problem) => (
-        <ProblemCard key={problem.id} problem={problem} />
+        <ProblemCard
+          key={problem.id}
+          problem={problem}
+          showEditDrawer={showEditProblemDrawer}
+        />
       ))}
       {problems.length + moreProblems.length < count && (
         <div className="show-more">
@@ -27,6 +38,13 @@ function ProblemsList() {
           {formatNumber(count)}
         </div>
       )}
+
+      {/* TODO: А что если мы нажали на список moreProblems? нужно подумать про удаление и изменение проблемы*/}
+      <DrawerEditProblem
+        onClose={() => setIsShowEditProblemDrawer(false)}
+        isShow={isShowEditProblemDrawer}
+        problem={problems.find(({ id }) => id === idProblemEdit)}
+      />
     </div>
   );
 }

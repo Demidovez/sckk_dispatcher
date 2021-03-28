@@ -20,17 +20,11 @@ export const setOrderValueAction = (orderValue) => ({
   payload: orderValue,
 });
 
-export const setDateRangeAction = (dateRange) => ({
-  type: Actions.SET_DATE_RANGE,
-  payload: dateRange,
+export const setAdditionalSearchData = (searchData) => ({
+  type: Actions.SET_ADDITIONAL_SEARCH_DATA,
+  payload: searchData,
 });
 
-export const setAreasAction = (areas) => ({
-  type: Actions.SET_AREAS,
-  payload: areas,
-});
-
-export const setProblemCodesAction = (problemCodes) => ({
-  type: Actions.SET_PROBLEM_CODES,
-  payload: problemCodes,
+export const setResetAdditionalSearchData = () => ({
+  type: Actions.RESET_ADDITIONAL_SEARCH_DATA,
 });
