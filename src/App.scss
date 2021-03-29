@@ -1,27 +1,46 @@
-
 body {
   overflow-y: scroll;
+  padding-right: 0 !important;
+}
+
+.rs-drawer-open.rs-drawer-has-backdrop,
+.rs-modal-open.rs-modal-has-backdrop {
+  overflow-y: scroll;
+
+  .rs-picker-menu {
+    position: fixed;
+  }
 }
 
 .app-component {
-    background-color: #ebf0f3;
-    padding: 15px;
-    min-height: 100vh;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  background-color: #ebf0f3;
+  padding: 15px;
+  min-height: 100vh;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 
-    .search-wrapper {
-      display: flex;
-      align-content: space-between;
-      align-items: center;
-      padding-bottom: 15px;
+  .search-wrapper {
+    display: flex;
+    align-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
 
-      .rs-divider {
-        margin: 0 20px;
-        height: 25px;
-      }
+    .rs-divider {
+      margin: 0 20px;
+      height: 25px;
     }
   }
+}
 
-  .rs-modal-content {
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  }
+.rs-modal-content {
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
+.rs-alert {
+  // position: absolute;
+  // left: 0;
+  // right: 0;
+
+  // .rs-alert-item-wrapper {
+  //   margin-left: auto;
+  // }
+}

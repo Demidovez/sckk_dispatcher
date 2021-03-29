@@ -28,7 +28,7 @@ function DrawerEditProblem({ onClose, isShow, problem }) {
     if (resultProblemStatus === RESULT.DELETED) {
       Alert.success("Проблема удалена!");
     } else if (resultProblemStatus === RESULT.EDITED) {
-      Alert.success("Проблема изменена!");
+      Alert.success("Проблема изменена!", 99999999);
     } else if (resultProblemStatus === RESULT.ERROR) {
       Alert.error("Произошла ошибка!");
     }

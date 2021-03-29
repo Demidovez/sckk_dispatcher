@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { setSearchStrAction } from "../../actions/creators/searchActionCreators";
 
 function SearchBar() {
-  const { searchStr } = useSelector((state) => state.search);
+  const { searchStr } = useSelector((state) => state.search.searchData);
   const dispatch = useDispatch();
 
   return (
@@ -17,9 +17,11 @@ function SearchBar() {
         value={searchStr}
         onChange={(value) => dispatch(setSearchStrAction(value))}
       />
-      <InputGroup.Button>
-        <Icon icon="close" />
-      </InputGroup.Button>
+      {searchStr && (
+        <InputGroup.Button onClick={() => dispatch(setSearchStrAction(""))}>
+          <Icon icon="close" />
+        </InputGroup.Button>
+      )}
     </InputGroup>
   );
 }

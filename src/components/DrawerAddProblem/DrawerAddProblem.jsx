@@ -3,7 +3,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button, Drawer, Alert } from "rsuite";
 import { Formik } from "formik";
 import "./styles.scss";
-import { addProblemAction } from "../../actions/creators/problemsActionCreators";
+import {
+  addProblemAction,
+  getAllProblemsAction,
+} from "../../actions/creators/problemsActionCreators";
 import { RESULT } from "../../reducers/problemsReducer";
 import FormProblem from "../FormProblem/FormProblem";
 
@@ -23,6 +26,7 @@ function DrawerAddProblem({ onClose, isShow }) {
   const { resultProblemStatus, validationSchema } = useSelector(
     (state) => state.problems
   );
+  const searchData = useSelector((state) => state.search.searchData);
   const dispatch = useDispatch();
 
   const [problemData, setProblemData] = useState({});
@@ -32,11 +36,15 @@ function DrawerAddProblem({ onClose, isShow }) {
   }, [isShow]);
 
   useEffect(() => {
-    if (resultProblemStatus === RESULT.SUCCESS) {
+    if (resultProblemStatus === RESULT.ADDED) {
       Alert.success("Проблема сохранена!");
+
+      dispatch(getAllProblemsAction(searchData));
     } else if (resultProblemStatus === RESULT.ERROR) {
       Alert.error("Произошла ошибка!");
     }
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [resultProblemStatus]);
 
   return (

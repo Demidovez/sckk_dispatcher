@@ -2,9 +2,10 @@ import axios from "axios";
 
 export const getProblems = async (searchData) => {
   try {
-    const { data } = await axios.post("http://127.0.0.1:5000/all_problems", {
-      searchData,
-    });
+    const { data } = await axios.post(
+      "http://10.1.22.2:5000/all_problems",
+      searchData
+    );
 
     return data;
   } catch (e) {
@@ -14,7 +15,7 @@ export const getProblems = async (searchData) => {
 
 export const addProblem = async (problemData) => {
   try {
-    const { data } = await axios.post("http://127.0.0.1:5000/add_problem", {
+    const { data } = await axios.post("http://10.1.22.2:5000/add_problem", {
       problemData,
     });
 
@@ -26,7 +27,7 @@ export const addProblem = async (problemData) => {
 
 export const deleteProblem = async (problemId) => {
   try {
-    const { data } = await axios.post("http://127.0.0.1:5000/delete_problem", {
+    const { data } = await axios.post("http://10.1.22.2:5000/delete_problem", {
       problemId,
     });
 
@@ -38,7 +39,7 @@ export const deleteProblem = async (problemId) => {
 
 export const editProblem = async (problem) => {
   try {
-    const { data } = await axios.post("http://127.0.0.1:5000/edit_problem", {
+    const { data } = await axios.post("http://10.1.22.2:5000/edit_problem", {
       problem,
     });
 

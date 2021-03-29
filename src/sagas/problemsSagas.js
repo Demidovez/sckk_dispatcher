@@ -4,8 +4,8 @@ import { addProblem, deleteProblem, editProblem, getProblems } from "../api";
 import {
   setAllProblemsAction,
   setResultProblemStatusAction,
+  resetResultProblemStatusAction,
   setMoreProblemsAction,
-  getAllProblemsAction,
 } from "../actions/creators/problemsActionCreators";
 
 function* workerGetProblems(action) {
@@ -15,23 +15,29 @@ function* workerGetProblems(action) {
 
 function* workerGetMoreProblems(action) {
   const { problems } = yield call(getProblems, action.payload);
+
   yield put(setMoreProblemsAction(problems));
 }
 
 function* workerAddProblem(action) {
+  yield put(resetResultProblemStatusAction());
+
   const { result } = yield call(addProblem, action.payload);
 
   yield put(setResultProblemStatusAction(result));
-  yield put(getAllProblemsAction());
 }
 
 function* workerDeleteProblem(action) {
+  yield put(resetResultProblemStatusAction());
+
   const { result } = yield call(deleteProblem, action.payload);
 
   yield put(setResultProblemStatusAction(result));
 }
 
 function* workerEditProblem(action) {
+  yield put(resetResultProblemStatusAction());
+
   const { result } = yield call(editProblem, action.payload);
 
   yield put(setResultProblemStatusAction(result));

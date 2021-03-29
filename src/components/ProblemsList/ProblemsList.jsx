@@ -1,15 +1,23 @@
 import ProblemCard from "../ProblemCard/ProblemCard";
 import { Button, Loader } from "rsuite";
 import { formatNumber } from "../../helpers";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./styles.scss";
 import DrawerEditProblem from "../DrawerEditProblem/DrawerEditProblem";
 import { useState } from "react";
+import { getMoreProblemsAction } from "../../actions/creators/problemsActionCreators";
 
 function ProblemsList() {
-  const { problems, moreProblems, count, isLoading } = useSelector(
-    (state) => state.problems
-  );
+  const {
+    problems,
+    moreProblems,
+    count,
+    isLoading,
+    offset,
+    offsetStep,
+  } = useSelector((state) => state.problems);
+  const searchData = useSelector((state) => state.search.searchData);
+  const dispatch = useDispatch();
 
   const [isShowEditProblemDrawer, setIsShowEditProblemDrawer] = useState(false);
   const [idProblemEdit, setIdProblemEdit] = useState();
@@ -19,12 +27,18 @@ function ProblemsList() {
     setIsShowEditProblemDrawer(true);
   };
 
+  const getMoreProblems = () =>
+    dispatch(getMoreProblemsAction(searchData, offset + offsetStep));
+
   return (
     <div className="problems-list-component">
       {isLoading && problems.length === 0 && (
         <Loader size="md" content="Загрузка..." />
       )}
-      {problems.map((problem) => (
+      {!isLoading && problems.length === 0 && (
+        <p className="not-found">Проблем не найдено...</p>
+      )}
+      {[...problems, ...moreProblems].map((problem) => (
         <ProblemCard
           key={problem.id}
           problem={problem}
@@ -33,7 +47,7 @@ function ProblemsList() {
       ))}
       {problems.length + moreProblems.length < count && (
         <div className="show-more">
-          <Button>Показать еще</Button>{" "}
+          <Button onClick={getMoreProblems}>Показать еще</Button>{" "}
           {formatNumber(problems.length + moreProblems.length)} <span>из</span>
           {formatNumber(count)}
         </div>

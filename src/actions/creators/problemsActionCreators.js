@@ -2,7 +2,7 @@ import Actions from "../types/problemsActionTypes";
 
 export const getAllProblemsAction = (searchData) => ({
   type: Actions.GET_ALL_PROBLEMS,
-  payload: searchData,
+  payload: { searchData },
 });
 
 export const setAllProblemsAction = (problems, count) => ({
@@ -10,9 +10,9 @@ export const setAllProblemsAction = (problems, count) => ({
   payload: { problems, count },
 });
 
-export const getMoreProblemsAction = (options) => ({
+export const getMoreProblemsAction = (searchData, offset) => ({
   type: Actions.GET_MORE_PROBLEMS,
-  payload: options,
+  payload: { searchData, offset },
 });
 
 export const setMoreProblemsAction = (moreProblems) => ({
@@ -28,6 +28,10 @@ export const addProblemAction = (values) => ({
 export const setResultProblemStatusAction = (status) => ({
   type: Actions.SET_RESULT_PROBLEM_STATUS,
   payload: status,
+});
+
+export const resetResultProblemStatusAction = () => ({
+  type: Actions.RESET_RESULT_PROBLEM_STATUS,
 });
 
 export const deleteProblemAction = (problemId) => ({

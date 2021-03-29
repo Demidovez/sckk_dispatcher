@@ -2,7 +2,7 @@ import Actions from "../actions/types/problemsActionTypes";
 import * as Yup from "yup";
 
 export const RESULT = {
-  SUCCESS: 0,
+  ADDED: 0,
   ERROR: 1,
   DELETED: 2,
   EDITED: 3,
@@ -26,6 +26,22 @@ const initialState = {
   ],
   codeProblemList: [
     { label: "Другой", value: "Другой" },
+    { label: "T345", value: "T345" },
+    { label: "A14", value: "A14" },
+    { label: "X90", value: "X90" },
+    { label: "K89", value: "K89" },
+    { label: "T345", value: "T345" },
+    { label: "A14", value: "A14" },
+    { label: "X90", value: "X90" },
+    { label: "K89", value: "K89" },
+    { label: "T345", value: "T345" },
+    { label: "A14", value: "A14" },
+    { label: "X90", value: "X90" },
+    { label: "K89", value: "K89" },
+    { label: "T345", value: "T345" },
+    { label: "A14", value: "A14" },
+    { label: "X90", value: "X90" },
+    { label: "K89", value: "K89" },
     { label: "T345", value: "T345" },
     { label: "A14", value: "A14" },
     { label: "X90", value: "X90" },
@@ -74,13 +90,18 @@ const problemsReducer = (state = initialState, action) => {
     case Actions.SET_MORE_PROBLEMS:
       return {
         ...state,
-        moreProblems: action.payload,
+        moreProblems: [...state.moreProblems, ...action.payload],
         offset: state.offset + state.offsetStep,
       };
     case Actions.SET_RESULT_PROBLEM_STATUS:
       return {
         ...state,
         resultProblemStatus: action.payload,
+      };
+    case Actions.RESET_RESULT_PROBLEM_STATUS:
+      return {
+        ...state,
+        resultProblemStatus: initialState.resultProblemStatus,
       };
     case Actions.ADD_PROBLEM:
       return {
@@ -93,6 +114,7 @@ const problemsReducer = (state = initialState, action) => {
         problems: state.problems.filter(
           (problem) => problem.id !== action.payload
         ),
+        count: state.count - 1,
       };
     case Actions.EDIT_PROBLEM:
       return {
