@@ -9,6 +9,7 @@
 
     .content {
       padding: 15px 15px 15px 20px;
+      min-height: 200px;
 
       h3 {
         color: black;
@@ -110,12 +111,17 @@
         }
       }
 
-      .btn-edit {
-        border-radius: 35px;
-        margin: 0 10px 10px 0;
+      .btn-edit-wrapper {
         align-self: flex-end;
-        padding: 8px 25px;
+        min-height: 45px;
+
+        button {
+          border-radius: 35px;
+          margin: 0 10px 10px 0;
+          padding: 8px 25px;
+        }
       }
+
     }
 
     .content + .rs-divider {

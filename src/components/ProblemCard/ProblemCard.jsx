@@ -11,6 +11,8 @@ import {
   Divider,
 } from "rsuite";
 import "./styles.scss";
+import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 
 function ProblemCard({ problem, showEditDrawer }) {
   const {
@@ -25,6 +27,21 @@ function ProblemCard({ problem, showEditDrawer }) {
     date,
     is_done,
   } = problem;
+
+  const { codeProblemList } = useSelector((state) => state.problems);
+  const { isLogined } = useSelector((state) => state.user);
+
+  const [descProblemCode, setDescProblemCode] = useState("");
+
+  useEffect(() => {
+    const foundProblemCode = codeProblemList.find(
+      (code) => code.value === problem_code
+    );
+
+    setDescProblemCode(
+      foundProblemCode ? foundProblemCode.desc : "код проблемы"
+    );
+  }, [codeProblemList, problem_code]);
 
   return (
     <Panel className="problem-card-component">
@@ -72,21 +89,19 @@ function ProblemCard({ problem, showEditDrawer }) {
               <Whisper
                 placement="right"
                 trigger="hover"
-                speaker={
-                  <Tooltip>Технологическая проблема на пресспате</Tooltip>
-                }
+                speaker={<Tooltip>{descProblemCode}</Tooltip>}
               >
                 <span>{problem_code}</span>
               </Whisper>
             </p>
           </div>
-          <Button
-            color="blue"
-            className="btn-edit"
-            onClick={() => showEditDrawer(problem.id)}
-          >
-            <Icon icon="" /> Изменить
-          </Button>
+          <div className="btn-edit-wrapper">
+            {isLogined && (
+              <Button color="blue" onClick={() => showEditDrawer(problem.id)}>
+                <Icon icon="" /> Изменить
+              </Button>
+            )}
+          </div>
         </Sidebar>
       </Container>
     </Panel>

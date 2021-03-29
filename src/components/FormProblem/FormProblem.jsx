@@ -85,9 +85,12 @@ function FormProblem({ errors, touched, values, handleChange, setFieldValue }) {
         >
           <p>Код проблемы:</p>
           <SelectPicker
-            data={codeProblemList}
+            data={codeProblemList.map(({ label, desc, value }) => ({
+              label: label + " - " + desc,
+              value,
+            }))}
             searchable={false}
-            placement="auto"
+            placement="autoVerticalStart"
             placeholder="Выберите"
             value={values.problem_code}
             onChange={(value) => setFieldValue("problem_code", value)}

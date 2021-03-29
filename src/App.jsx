@@ -8,9 +8,11 @@ import ProblemsList from "./components/ProblemsList/ProblemsList";
 import { useEffect } from "react";
 import { getAllProblemsAction } from "./actions/creators/problemsActionCreators";
 import { useDispatch, useSelector } from "react-redux";
+import ButtonLogin from "./components/ButtonLogin/ButtonLoginModal";
 
 function App() {
   const isUserCanAddProblem = true;
+  const isLogined = false;
   const searchData = useSelector((state) => state.search.searchData);
   const dispatch = useDispatch();
 
@@ -31,7 +33,7 @@ function App() {
               {isUserCanAddProblem && (
                 <>
                   <Divider vertical />
-                  <ButtonAddProblem />
+                  {isLogined ? <ButtonAddProblem /> : <ButtonLogin />}
                 </>
               )}
             </div>
