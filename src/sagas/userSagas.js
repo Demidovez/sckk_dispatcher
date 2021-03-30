@@ -7,7 +7,7 @@ import {
 } from "../actions/creators/userActionCreators";
 
 function* workerTryLogin(action) {
-  const { user } = yield call(tryLogin, action.payload);
+  const user = yield call(tryLogin, action.payload);
 
   if (user) {
     yield put(setUserAction(user));
