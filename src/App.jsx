@@ -1,6 +1,13 @@
-import "rsuite/dist/styles/rsuite-default.css";
-import "./App.scss";
-import { Grid, Row, Col, Divider } from "rsuite";
+import {
+  Grid,
+  Row,
+  Col,
+  Divider,
+  Whisper,
+  Button,
+  Popover,
+  Icon,
+} from "rsuite";
 import SearchBar from "./components/SearchBar/SearchBar";
 import ButtonAddProblem from "./components/ButtonAddProblem/ButtomAddProblem";
 import SearchBarControllers from "./components/SearchBarControllers/SearchBarControllers";
@@ -10,6 +17,9 @@ import { getAllProblemsAction } from "./actions/creators/problemsActionCreators"
 import { getLoginedUserAction } from "./actions/creators/userActionCreators";
 import { useDispatch, useSelector } from "react-redux";
 import ButtonLogin from "./components/ButtonLogin/ButtonLoginModal";
+import SettingsPopover from "./components/SettingsPopover/SettingsPopover";
+import "rsuite/dist/styles/rsuite-default.css";
+import "./App.scss";
 
 function App() {
   const isUserCanAddProblem = true;
@@ -18,7 +28,7 @@ function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    //dispatch(getLoginedUserAction());
+    dispatch(getLoginedUserAction());
     dispatch(getAllProblemsAction(searchData));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -29,20 +39,36 @@ function App() {
       <Grid fluid>
         <Row>
           <Col xs={5} />
-          <Col xs={14} className="content">
-            <div className="search-wrapper">
-              <SearchBar />
-              {isUserCanAddProblem && (
-                <>
-                  <Divider vertical />
-                  {isLogined ? <ButtonAddProblem /> : <ButtonLogin />}
-                </>
-              )}
+          <Col xs={14}>
+            <div className="app-content">
+              <div className="search-wrapper">
+                <SearchBar />
+                {isUserCanAddProblem && (
+                  <>
+                    <Divider vertical />
+                    {isLogined ? <ButtonAddProblem /> : <ButtonLogin />}
+                  </>
+                )}
+              </div>
+              <SearchBarControllers />
+              <ProblemsList />
             </div>
-            <SearchBarControllers />
-            <ProblemsList />
           </Col>
-          <Col xs={5} />
+          <Col xs={5}>
+            <Whisper
+              trigger="click"
+              placement="bottomEnd"
+              speaker={
+                <Popover>
+                  <SettingsPopover />
+                </Popover>
+              }
+            >
+              <Button appearance="link" className="btn-settings">
+                <Icon icon="cog" /> Настройки
+              </Button>
+            </Whisper>
+          </Col>
         </Row>
       </Grid>
     </div>

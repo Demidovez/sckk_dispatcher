@@ -16,6 +16,10 @@
     .rs-modal-title {
       font-size: 18px;
       font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+
+      .error-message {
+        color: #e74c3c;
+      }
     }
 
     .rs-modal-body {
@@ -32,6 +36,10 @@
       input + p {
         margin-top: 20px;
       }
+
+      input[type="password"] {
+        font: caption;
+      }
     }
 
     .rs-modal-footer {
@@ -39,7 +47,29 @@
 
       button {
         border-radius: 35px;
-        padding: 8px 20px;
+        padding: 8px 17px 8px 5px;
+
+        & > div {
+          text-align: center;
+          width: 33px;
+          display: inline-block;
+
+          .rs-loader {
+            margin-right: 0;
+            vertical-align: middle;
+          }
+        }
+
+        & + button {
+          padding: 8px 17px;
+        }
+
+
+
+        //.rs-loader-wrapper {
+        //  vertical-align: middle;
+        //  margin-right: 3px;
+        //}
       }
     }
   }

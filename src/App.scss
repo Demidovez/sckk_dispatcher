@@ -29,8 +29,35 @@ body {
       height: 25px;
     }
   }
+
+  .app-content {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .btn-settings {
+    color: #748894;
+    text-decoration: none;
+    opacity: 0.6;
+    padding: 0;
+    float: right;
+    transition: all 0.2s ease-out;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    i {
+      margin-right: 3px;
+    }
+  }
 }
 
-.rs-modal-content {
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+.rs-modal-wrapper {
+  z-index: 1070;
+
+  .rs-modal-content {
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  }
 }
+

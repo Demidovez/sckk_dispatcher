@@ -3,6 +3,7 @@ import Actions from "../actions/types/userActionTypes";
 const initialState = {
   id: null,
   isLogined: false,
+  isTryingLogin: false,
   login: "",
   firstname: "",
   lastname: "",
@@ -17,6 +18,7 @@ const userReducer = (state = initialState, action) => {
       return {
         ...state,
         errorMessage: "",
+        isTryingLogin: true,
       };
     case Actions.SET_USER:
       return {
@@ -28,11 +30,17 @@ const userReducer = (state = initialState, action) => {
         lastname: action.payload.lastname,
         role: action.payload.role,
         config: action.payload.config,
+        isTryingLogin: false,
+      };
+    case Actions.RESET_USER:
+      return {
+        ...initialState,
       };
     case Actions.SET_ERROR_LOGIN:
       return {
         ...state,
         isLogined: false,
+        isTryingLogin: false,
         errorMessage: action.payload,
       };
     default:

@@ -2,7 +2,7 @@ import axios_base from "axios";
 
 const axios = axios_base.create({
   withCredentials: true,
-  baseURL: "http://10.1.22.2:5000",
+  baseURL: "http://127.0.0.1:5000",
 });
 
 export const getProblems = async (searchData) => {
@@ -54,6 +54,16 @@ export const editProblem = async (problem) => {
 export const tryLogin = async (options) => {
   try {
     const { data } = await axios.post("login", options);
+
+    return data;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
+
+export const tryLogout = async () => {
+  try {
+    const { data } = await axios.get("logout");
 
     return data;
   } catch (e) {

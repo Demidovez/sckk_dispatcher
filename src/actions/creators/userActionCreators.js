@@ -5,6 +5,10 @@ export const tryLoginAction = ({ login, password }) => ({
   payload: { login, password },
 });
 
+export const tryLogoutAction = () => ({
+  type: Actions.TRY_LOGOUT,
+});
+
 export const getLoginedUserAction = () => ({
   type: Actions.GET_USER,
 });
@@ -12,6 +16,10 @@ export const getLoginedUserAction = () => ({
 export const setUserAction = (user) => ({
   type: Actions.SET_USER,
   payload: user,
+});
+
+export const resetUserAction = () => ({
+  type: Actions.RESET_USER,
 });
 
 export const setErrorLoginAction = (errorMessage) => ({
