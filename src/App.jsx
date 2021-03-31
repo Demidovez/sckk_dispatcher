@@ -7,16 +7,18 @@ import SearchBarControllers from "./components/SearchBarControllers/SearchBarCon
 import ProblemsList from "./components/ProblemsList/ProblemsList";
 import { useEffect } from "react";
 import { getAllProblemsAction } from "./actions/creators/problemsActionCreators";
+import { getLoginedUserAction } from "./actions/creators/userActionCreators";
 import { useDispatch, useSelector } from "react-redux";
 import ButtonLogin from "./components/ButtonLogin/ButtonLoginModal";
 
 function App() {
   const isUserCanAddProblem = true;
-  const isLogined = false;
   const searchData = useSelector((state) => state.search.searchData);
+  const { isLogined } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    //dispatch(getLoginedUserAction());
     dispatch(getAllProblemsAction(searchData));
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

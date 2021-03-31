@@ -5,6 +5,10 @@ export const tryLoginAction = ({ login, password }) => ({
   payload: { login, password },
 });
 
+export const getLoginedUserAction = () => ({
+  type: Actions.GET_USER,
+});
+
 export const setUserAction = (user) => ({
   type: Actions.SET_USER,
   payload: user,

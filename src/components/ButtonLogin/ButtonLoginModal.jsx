@@ -12,7 +12,7 @@ function ButtonLogin() {
 
   useEffect(() => {
     if (!isShowLoginModal) {
-      setTimeout(() => setLoginData({ login: "", password: "" }), 500);
+      setLoginData({ login: "", password: "" });
     }
   }, [isShowLoginModal]);
 

@@ -1,6 +1,6 @@
 import { put, call, takeEvery } from "redux-saga/effects";
 import Actions from "../actions/types/userActionTypes";
-import { tryLogin } from "../api";
+import { tryLogin, getUser } from "../api";
 import {
   setUserAction,
   setErrorLoginAction,
@@ -16,6 +16,15 @@ function* workerTryLogin(action) {
   }
 }
 
+function* workerGetUser() {
+  const user = yield call(getUser);
+
+  if (user) {
+    yield put(setUserAction(user));
+  }
+}
+
 export default function* watcherSaga() {
   yield takeEvery(Actions.TRY_LOGIN, workerTryLogin);
+  yield takeEvery(Actions.GET_USER, workerGetUser);
 }
