@@ -2,7 +2,7 @@ import axios_base from "axios";
 
 const axios = axios_base.create({
   withCredentials: true,
-  baseURL: "http://127.0.0.1:5000",
+  baseURL: "http://10.1.22.2:5000",
 });
 
 export const getProblems = async (searchData) => {

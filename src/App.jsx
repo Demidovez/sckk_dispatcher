@@ -55,19 +55,21 @@ function App() {
             </div>
           </Col>
           <Col xs={5}>
-            <Whisper
-              trigger="click"
-              placement="bottomEnd"
-              speaker={
-                <Popover>
-                  <SettingsPopover />
-                </Popover>
-              }
-            >
-              <Button appearance="link" className="btn-settings">
-                <Icon icon="cog" /> Настройки
-              </Button>
-            </Whisper>
+            {isLogined && (
+              <Whisper
+                trigger="click"
+                placement="bottomEnd"
+                speaker={
+                  <Popover>
+                    <SettingsPopover />
+                  </Popover>
+                }
+              >
+                <Button appearance="link" className="btn-settings">
+                  <Icon icon="cog" /> Настройки
+                </Button>
+              </Whisper>
+            )}
           </Col>
         </Row>
       </Grid>
