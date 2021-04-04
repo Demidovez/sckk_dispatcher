@@ -6,6 +6,7 @@ import {
   setAdditionalSearchData,
   setResetAdditionalSearchData,
 } from "../../actions/creators/searchActionCreators";
+import settingsIcon from "../../assets/settings.svg";
 
 const initialSearchData = {
   areas: [],
@@ -64,7 +65,7 @@ function SearchSettingIcon() {
         onClick={() => setShowFilterModal(true)}
       >
         <Badge className={`${isSearchDataEdited ? "show" : ""}`}>
-          <img src="/settings.svg" alt="Настройка сортировки" />
+          <img src={settingsIcon} alt="Настройка сортировки" />
         </Badge>
       </div>
       <Modal

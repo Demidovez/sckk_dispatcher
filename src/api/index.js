@@ -1,8 +1,9 @@
 import axios_base from "axios";
+import { getApiUrl } from "../helpers";
 
 const axios = axios_base.create({
   withCredentials: true,
-  baseURL: "http://10.1.22.2:5000",
+  baseURL: getApiUrl(),
 });
 
 export const getProblems = async (searchData) => {

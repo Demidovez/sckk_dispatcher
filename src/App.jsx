@@ -19,6 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import ButtonLogin from "./components/ButtonLogin/ButtonLoginModal";
 import SettingsPopover from "./components/SettingsPopover/SettingsPopover";
 import "rsuite/dist/styles/rsuite-default.css";
+import "./assets/fonts.css";
 import "./App.scss";
 
 function App() {

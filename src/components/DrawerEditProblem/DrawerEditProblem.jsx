@@ -48,6 +48,7 @@ function DrawerEditProblem({ onClose, isShow, problem }) {
         values,
         errors,
         touched,
+        dirty,
         handleChange,
         handleSubmit,
         setFieldValue,
@@ -76,8 +77,9 @@ function DrawerEditProblem({ onClose, isShow, problem }) {
               onClick={handleSubmit}
               appearance="primary"
               disabled={
-                Object.keys(errors).length > 0 &&
-                Object.keys(touched).length > 0
+                (Object.keys(errors).length > 0 &&
+                  Object.keys(touched).length > 0) ||
+                !dirty
               }
             >
               Изменить
