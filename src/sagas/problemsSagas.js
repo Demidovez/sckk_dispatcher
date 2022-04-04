@@ -9,12 +9,12 @@ import {
 } from "../actions/creators/problemsActionCreators";
 
 function* workerGetProblems(action) {
-  const { problems, count } = yield call(getProblems, action.payload);
-  yield put(setAllProblemsAction(problems, count));
+  const problems = yield call(getProblems, action.payload);
+  yield put(setAllProblemsAction(problems, problems.length));
 }
 
 function* workerGetMoreProblems(action) {
-  const { problems } = yield call(getProblems, action.payload);
+  const problems = yield call(getProblems, action.payload);
 
   yield put(setMoreProblemsAction(problems));
 }

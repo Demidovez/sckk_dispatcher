@@ -23,12 +23,13 @@ import "./assets/fonts.css";
 import "./App.scss";
 
 function App() {
-  const isUserCanAddProblem = true;
-  const searchData = useSelector((state) => state.search.searchData);
-  const { isLogined } = useSelector((state) => state.user);
   const dispatch = useDispatch();
 
+  const searchData = useSelector((state) => state.search.searchData);
+  const { isLogined } = useSelector((state) => state.user);
+
   useEffect(() => {
+    // TODO: А как дял гостя?
     dispatch(getLoginedUserAction());
     dispatch(getAllProblemsAction(searchData));
 
@@ -44,12 +45,8 @@ function App() {
             <div className="app-content">
               <div className="search-wrapper">
                 <SearchBar />
-                {isUserCanAddProblem && (
-                  <>
-                    <Divider vertical />
-                    {isLogined ? <ButtonAddProblem /> : <ButtonLogin />}
-                  </>
-                )}
+                <Divider vertical />
+                {isLogined ? <ButtonAddProblem /> : <ButtonLogin />}
               </div>
               <SearchBarControllers />
               <ProblemsList />

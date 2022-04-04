@@ -8,7 +8,7 @@ const axios = axios_base.create({
 
 export const getProblems = async (searchData) => {
   try {
-    const { data } = await axios.post("all_problems", searchData);
+    const { data } = await axios.post("all_problems", {data: searchData});
 
     return data;
   } catch (e) {
@@ -19,7 +19,10 @@ export const getProblems = async (searchData) => {
 export const addProblem = async (problemData) => {
   try {
     const { data } = await axios.post("add_problem", {
-      problemData,
+      data: {
+        ...problemData,
+        is_hide: 0
+      },
     });
 
     return data;
@@ -31,7 +34,7 @@ export const addProblem = async (problemData) => {
 export const deleteProblem = async (problemId) => {
   try {
     const { data } = await axios.post("delete_problem", {
-      problemId,
+      data: problemId,
     });
 
     return data;
@@ -43,7 +46,7 @@ export const deleteProblem = async (problemId) => {
 export const editProblem = async (problem) => {
   try {
     const { data } = await axios.post("edit_problem", {
-      problem,
+      data: problem,
     });
 
     return data;

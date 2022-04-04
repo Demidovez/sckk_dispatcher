@@ -2,7 +2,7 @@ import Actions from "../types/problemsActionTypes";
 
 export const getAllProblemsAction = (searchData) => ({
   type: Actions.GET_ALL_PROBLEMS,
-  payload: { searchData },
+  payload: searchData,
 });
 
 export const setAllProblemsAction = (problems, count) => ({
